@@ -1,0 +1,32 @@
+[
+  {
+    "role": "Data Analyst",
+    "skills": ["SQL", "Python", "Power BI"],
+    "location": "Bangalore",
+    "experience": "Freshers"
+  },
+  {
+    "role": "Data Analyst",
+    "skills": ["SQL", "Excel"],
+    "location": "Hyderabad",
+    "experience": "1-3 Years"
+  },
+  {
+    "role": "Data Analyst",
+    "skills": ["Python", "Tableau"],
+    "location": "Pune",
+    "experience": "Freshers"
+  },
+  {
+    "role": "Data Analyst",
+    "skills": ["SQL", "Power BI"],
+    "location": "Bangalore",
+    "experience": "1-3 Years"
+  },
+  {
+    "role": "Data Analyst",
+    "skills": ["Excel", "Tableau"],
+    "location": "Chennai",
+    "experience": "Freshers"
+  }
+]
