@@ -2,191 +2,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerLens Dashboard</title>
 
-<title>CareerLens Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<link rel="stylesheet" href="/style.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
-<h1 class="title">🚀 CareerLens Analytics Dashboard</h1>
+    <h1 class="title">🚀 CareerLens Analytics Dashboard</h1>
 
-<p class="subtitle">
-Analyze Trending Skills, Hiring Locations and Career Opportunities
-</p>
+    <p class="subtitle">
+        Analyze Trending Skills, Hiring Locations and Career Opportunities
+    </p>
 
-<!-- Statistics Cards -->
+    <!-- Statistics Cards -->
 
-<div class="stats">
+    <div class="stats">
 
-    <div class="stat-card">
-        <h2>20+</h2>
-        <p>Jobs Analyzed</p>
+        <div class="stat-card">
+            <h2>20+</h2>
+            <p>Jobs Analyzed</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>10+</h2>
+            <p>Skills Found</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>4+</h2>
+            <p>Cities Covered</p>
+        </div>
+
     </div>
 
-    <div class="stat-card">
-        <h2>10+</h2>
-        <p>Skills Found</p>
+    <!-- Skills Chart -->
+
+    <div class="chart-box">
+        <h2>📊 Top Skills in Demand</h2>
+        <canvas id="skillsChart"></canvas>
     </div>
 
-    <div class="stat-card">
-        <h2>4+</h2>
-        <p>Cities Covered</p>
+    <!-- Locations Chart -->
+
+    <div class="chart-box">
+        <h2>📍 Hiring Locations</h2>
+        <canvas id="locationChart"></canvas>
     </div>
 
-</div>
+    <!-- Experience Chart -->
 
-<!-- Skills Chart -->
+    <div class="chart-box">
+        <h2>💼 Experience Distribution</h2>
+        <canvas id="experienceChart"></canvas>
+    </div>
 
-<div class="chart-box">
+    <!-- Recommendations -->
 
-<h2 style="text-align:center;color:#38bdf8;">
-📊 Top Skills in Demand
-</h2>
+    <div class="recommendations">
 
-<canvas id="skillsChart"></canvas>
+        <h2>🎯 Career Recommendations</h2>
 
-</div>
+        <ul>
+            <li>Learn SQL</li>
+            <li>Learn Power BI</li>
+            <li>Practice Excel</li>
+            <li>Build Data Analytics Projects</li>
+            <li>Create a Strong Portfolio</li>
+        </ul>
 
-<!-- Location Chart -->
-
-<div class="chart-box">
-
-<h2 style="text-align:center;color:#38bdf8;">
-📍 Hiring Locations
-</h2>
-
-<canvas id="locationChart"></canvas>
-
-</div>
-
-<!-- Experience Chart -->
-
-<div class="chart-box">
-
-<h2 style="text-align:center;color:#38bdf8;">
-💼 Experience Distribution
-</h2>
-
-<canvas id="experienceChart"></canvas>
-
-</div>
-
-<!-- Recommendations -->
-
-<div class="recommendations">
-
-<h2>🎯 Career Recommendations</h2>
-
-<ul>
-<li>Learn SQL</li>
-<li>Learn Power BI</li>
-<li>Practice Excel</li>
-<li>Build Data Analytics Projects</li>
-<li>Create a Strong Portfolio</li>
-</ul>
-
-</div>
+    </div>
 
 <script>
 
 /* Skills Chart */
 
-const skillsLabels =
-<%- JSON.stringify(Object.keys(skills)) %>;
+const skillsLabels = [
+    "SQL",
+    "Python",
+    "Power BI",
+    "Excel",
+    "Tableau"
+];
 
-const skillsData =
-<%- JSON.stringify(Object.values(skills)) %>;
+const skillsData = [
+    15,
+    12,
+    10,
+    8,
+    6
+];
 
 new Chart(
 document.getElementById("skillsChart"),
 {
-type:"bar",
-data:{
-labels:skillsLabels,
-datasets:[{
-label:"Top Skills",
-data:skillsData,
-backgroundColor:[
-"#38bdf8",
-"#22c55e",
-"#f59e0b",
-"#ef4444",
-"#a855f7"
-]
-}]
-},
-options:{
-responsive:true,
-maintainAspectRatio:false
-}
+    type:"bar",
+    data:{
+        labels:skillsLabels,
+        datasets:[{
+            label:"Top Skills",
+            data:skillsData,
+            backgroundColor:[
+                "#38bdf8",
+                "#22c55e",
+                "#f59e0b",
+                "#ef4444",
+                "#a855f7"
+            ]
+        }]
+    },
+    options:{
+        responsive:true,
+        maintainAspectRatio:false
+    }
 }
 );
 
 /* Location Chart */
 
-const locationLabels =
-<%- JSON.stringify(Object.keys(locations)) %>;
+const locationLabels = [
+    "Bangalore",
+    "Hyderabad",
+    "Pune",
+    "Chennai"
+];
 
-const locationData =
-<%- JSON.stringify(Object.values(locations)) %>;
+const locationData = [
+    40,
+    25,
+    20,
+    15
+];
 
 new Chart(
 document.getElementById("locationChart"),
 {
-type:"pie",
-data:{
-labels:locationLabels,
-datasets:[{
-data:locationData,
-backgroundColor:[
-"#06b6d4",
-"#22c55e",
-"#f59e0b",
-"#ef4444"
-]
-}]
-},
-options:{
-responsive:true,
-maintainAspectRatio:false
-}
+    type:"pie",
+    data:{
+        labels:locationLabels,
+        datasets:[{
+            data:locationData,
+            backgroundColor:[
+                "#06b6d4",
+                "#22c55e",
+                "#f59e0b",
+                "#ef4444"
+            ]
+        }]
+    },
+    options:{
+        responsive:true,
+        maintainAspectRatio:false
+    }
 }
 );
 
 /* Experience Chart */
 
-const expLabels =
-<%- JSON.stringify(Object.keys(experience)) %>;
+const expLabels = [
+    "Freshers",
+    "1-3 Years",
+    "3+ Years"
+];
 
-const expData =
-<%- JSON.stringify(Object.values(experience)) %>;
+const expData = [
+    35,
+    45,
+    20
+];
 
 new Chart(
 document.getElementById("experienceChart"),
 {
-type:"doughnut",
-data:{
-labels:expLabels,
-datasets:[{
-data:expData,
-backgroundColor:[
-"#3b82f6",
-"#8b5cf6",
-"#ec4899"
-]
-}]
-},
-options:{
-responsive:true,
-maintainAspectRatio:false
-}
+    type:"doughnut",
+    data:{
+        labels:expLabels,
+        datasets:[{
+            data:expData,
+            backgroundColor:[
+                "#3b82f6",
+                "#8b5cf6",
+                "#ec4899"
+            ]
+        }]
+    },
+    options:{
+        responsive:true,
+        maintainAspectRatio:false
+    }
 }
 );
 
